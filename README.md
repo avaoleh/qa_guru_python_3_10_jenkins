@@ -80,7 +80,7 @@ attach.add_logs(browser)
 
 
 Далее код необходимо модернизировать:
-
+```Python
 options = Options()
 selenoid_capabilities = {
     "browserName": "chrome",
@@ -97,11 +97,14 @@ driver = webdriver.Remote(
     options=options)
 
 browser.config.driver = driver
+```
+
 После этого переходим в Jenkins и нажимаем «Собрать сейчас». Откроется подробный отчёт с аттачами.
 
 Добавляем видео
 Для добавления видео заменим параметр enableVideo из кода выше на True:
 
+```Python
 options = Options()
 selenoid_capabilities = {
     "browserName": "chrome",
@@ -118,8 +121,11 @@ driver = webdriver.Remote(
     options=options)
 
 browser.config.driver = driver
+```
+
 Далее в файле attach.py добавим соответствующую функцию:
 
+```Python
 # скринкаст
 def add_video(browser):
     video_url = "https://selenoid.autotests.cloud/video/" + browser.driver.session_id + ".mp4"
@@ -130,6 +136,7 @@ def add_video(browser):
 Добавить видео в коде теста можно следующим образом:
 
 attach.add_video(browser)
+```
 
 # Allure-reports 
 https://jenkins.autotests.cloud/job/avaoleg_qa_guru_python_3_10/5/allure/#suites/180f4ab735335cd46621484f689ce405/e4118bc242cd8c62/
