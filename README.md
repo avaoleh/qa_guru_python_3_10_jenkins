@@ -1,14 +1,11 @@
-# qa_guru_python_3_10
-
-Allure-reports 
-https://jenkins.autotests.cloud/job/avaoleg_qa_guru_python_3_10/5/allure/#suites/180f4ab735335cd46621484f689ce405/e4118bc242cd8c62/
+# qa_guru_python_3_10 -  Jenkins. Создаем задачу и управляем параметрами Python
 
 
-Что это такое?
+# Что это такое?
 Jenkins — система для обеспечения процесса непрерывной интеграции (CI) программного обеспечения. Jenkins написан на Java и у инструмента открытый исходный код.
 
 
-Как обычно происходит процесс запуска тестов
+# Как обычно происходит процесс запуска тестов
 Локально
 ![local](https://raw.githubusercontent.com/qa-guru/knowledge-base/main/img/les10/les10-1.png)
 
@@ -52,7 +49,7 @@ pytest .
 Jenkins в паре с Allure позволяет автоматически запускать тесты и снабжать их подробными отчётами с различными аттачментами: логи, скриншоты, скринкасты, исходный код страницы и другое.
 
 Для этого необходимо сперва добавить некоторые утилиты в код тестов. Для этого в директории utils в проекте создаем файл attach.py и пропишем в нём реализацию аттачментов:
-
+```Python
 import allure
 from allure_commons.types import AttachmentType
 
@@ -75,7 +72,7 @@ def add_html(browser):
 attach.add_html(browser)
 attach.add_screenshot(browser)
 attach.add_logs(browser)
-
+```
 
 # Selenoid
 Для добавления Selenoid в проект переходим во вкладку «Capabilities», выбираем Python и копируем код.
@@ -133,3 +130,6 @@ def add_video(browser):
 Добавить видео в коде теста можно следующим образом:
 
 attach.add_video(browser)
+
+# Allure-reports 
+https://jenkins.autotests.cloud/job/avaoleg_qa_guru_python_3_10/5/allure/#suites/180f4ab735335cd46621484f689ce405/e4118bc242cd8c62/
